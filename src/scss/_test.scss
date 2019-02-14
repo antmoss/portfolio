@@ -1,0 +1,18 @@
+body {
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+h1 {
+  flex-basis: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+img {
+  width: 400px;
+  height: auto;
+}
