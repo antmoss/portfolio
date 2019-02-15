@@ -1,0 +1,35 @@
+body {
+  @include type-style(body);
+
+  color: colour-get(silver);
+  font-family: $font-stack;
+  line-height: $base-line-height;
+}
+
+.page-section {
+  &__title {
+    @include type-style(headline-alt);
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    color: colour-get(secondary);
+    text-transform: uppercase;
+
+    &::after {
+      content: " ";
+      align-self: flex-start;
+      width: 60px;
+      height: 3px;
+      margin-top: 8px;
+      background-color: colour-get(primary);
+    }
+
+    &.full-line {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

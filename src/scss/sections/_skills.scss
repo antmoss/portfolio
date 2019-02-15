@@ -1,0 +1,75 @@
+.skills {
+  background-color: lighten(colour-get(silver), 50%);
+
+  .inner-content-first {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn {
+    align-self: flex-start;
+    margin-top: 40px;
+
+    @media screen and (min-width: $bp--tablet) {
+      margin-top: auto;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__list-item {
+    & + .skills__list-item {
+      margin-top: 15px;
+    }
+
+    span {
+      text-transform: uppercase;
+    }
+  }
+}
+
+// bar chart styles
+.bar {
+  position: relative;
+  width: 100%;
+  height: 28px;
+  overflow: hidden;
+  background-color: lighten(colour-get(silver), 40%);
+
+  span {
+    @include type-style(caption-alt);
+
+    position: absolute;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    color: colour-get(white);
+    // background-color: colour-get(secondary);
+    background-color: lighten(colour-get(primary), 5%);
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: flex-end;
+    width: 0;
+    height: 100%;
+    background-color: darken(colour-get(primary), 5%);
+    transform: skew($brand-device-angle);
+    transform-origin: 0 100%;
+    transition: width 0.6s linear;
+
+    &::after {
+      @include type-style(caption);
+
+      content: attr(data-percent);
+      align-self: center;
+      padding-right: 20px;
+      color: colour-get(white);
+      transform: skew(-$brand-device-angle);
+    }
+  }
+}

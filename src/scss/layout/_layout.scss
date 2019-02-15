@@ -1,0 +1,99 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+dl,
+table,
+pre {
+  margin: 0;
+  padding: 0;
+}
+
+p + p {
+  padding-top: 16px;
+}
+
+.page-section {
+  padding: 50px 0;
+
+  @media screen and (min-width: $bp--tablet) {
+    padding: 100px 0;
+  }
+
+  &__inner {
+    // padding: 40px 0;
+
+    @media screen and (min-width: $bp--tablet) {
+      display: flex;
+    }
+  }
+
+  .inner-content-first {
+    order: 1;
+    padding: 0 0 40px 0;
+
+    @media screen and (min-width: $bp--tablet) {
+      width: calc(40% - #{$gutter-width} * 2);
+      padding: 0;
+    }
+  }
+
+  .inner-content-last {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+
+    @media screen and (min-width: $bp--tablet) {
+      width: 60%;
+      margin-left: $gutter-width * 2;
+    }
+  }
+
+  &--reverse {
+    .inner-content-first {
+      order: 2;
+      margin-left: 0;
+    }
+
+    .inner-content-last {
+      order: 1;
+      margin-left: 0;
+
+      @media screen and (min-width: $bp--tablet) {
+        margin-right: $gutter-width * 2;
+      }
+    }
+  }
+}

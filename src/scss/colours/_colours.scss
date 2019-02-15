@@ -1,0 +1,21 @@
+$base-colours: (
+  black: #000,
+  white: #fff,
+  primary: #5ab578,
+  secondary: #1b242f,
+  tertiary: #242727,
+  light-blue: #5a97b5,
+  accent-yellow: #fd0,
+  accent-red: #de532a,
+  accent-blue: #3b5998,
+  silver: #777
+);
+
+$dependent-colours: (
+  active: map-get($base-colours, primary),
+  warning: map-get($base-colours, accent-yellow),
+  error: map-get($base-colours, accent-red)
+);
+
+// Set up our "global" colour map.
+$colours: map-merge($base-colours, $dependent-colours);

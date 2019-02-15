@@ -1,0 +1,59 @@
+@mixin type-style($style) {
+  @if (map-has-key($type-styles, $style) == false) {
+    @error ('Missing type style #{$style}');
+  }
+
+  @include map-to-rules(map-get($type-styles, $style));
+}
+
+@mixin map-to-rules($property-map) {
+  $type: type-of($property-map);
+
+  @if ($type != map) {
+    @error ('Expected map, received #{$type}');
+  }
+
+  @each $property, $value in $property-map {
+    #{$property}: $value;
+  }
+}
+
+@mixin slanted-element($shadow: false) {
+  @if $shadow {
+    box-shadow: $shadow;
+  }
+
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  transform: skewX($brand-device-angle);
+  transform-origin: bottom right;
+  content: " ";
+}
+
+@mixin brand-angle($width) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: $width;
+  height: 200%;
+  background: colour-get(secondary);
+  transform: rotate(-20deg);
+  transform-origin: 0 0;
+  content: "";
+  transition: $transition-time;
+}
+
+@mixin brand-slant-element($width, $color) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: $width;
+  height: 100%;
+  background-color: $color;
+  content: " ";
+  transform: skew($brand-device-angle);
+  transform-origin: 0 100%;
+}

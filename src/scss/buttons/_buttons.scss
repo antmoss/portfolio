@@ -1,0 +1,123 @@
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 80px 15px 15px;
+  overflow: hidden;
+  color: colour-get(white);
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: colour-get(primary);
+  cursor: pointer;
+  transition: $transition-time;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 100%;
+    font-size: 130%;
+  }
+
+  span {
+    position: relative;
+    z-index: 3;
+  }
+
+  &::after {
+    @include brand-angle(70px);
+  }
+
+  &:hover {
+    background-color: darken(colour-get(primary), 10%);
+
+    &::after {
+      width: 40%;
+      background-color: darken(colour-get(primary), 10%);
+    }
+  }
+}
+
+.icon {
+  &::before {
+    color: colour-get(white);
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  &--arrow-right {
+    &::before {
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free", sans-serif;
+      content: "\f061";
+      transition: $transition-time;
+    }
+
+    &:hover::before {
+      transform: rotate(90deg);
+    }
+  }
+
+  &--arrow-up {
+    &::before {
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free", sans-serif;
+      content: "\f061";
+      transform: rotate(270deg);
+      transition: $transition-time;
+    }
+  }
+
+  &--social {
+    padding: 18px 0;
+
+    &::before {
+      font-family: "Font Awesome 5 Brands", sans-serif;
+    }
+
+    @media screen and (min-width: $bp--tablet) {
+      padding: 15px 80px 15px 15px;
+    }
+  }
+
+  &--twitter {
+    &::before {
+      content: "\f099";
+    }
+  }
+
+  &--linkedin {
+    &::before {
+      content: "\f0e1";
+    }
+  }
+
+  &--github {
+    &::before {
+      content: "\f09b";
+    }
+  }
+
+  &--send {
+    &::before {
+      content: url("static/icons/send.svg");
+    }
+  }
+
+  &--download {
+    &::before {
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free", sans-serif;
+      content: "\f019";
+    }
+  }
+}

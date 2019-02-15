@@ -1,0 +1,352 @@
+.resume {
+  // title
+  &__title {
+    display: flex;
+    justify-content: center;
+    // padding-bottom: 40px;
+
+    @media screen and (min-width: $bp--tablet) {
+      padding-bottom: 40px;
+    }
+  }
+
+  // targeting both columns
+  .page-section__inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  // column titles
+  h3 {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      border-bottom: 3px dotted lighten(colour-get(silver), 40%);
+      content: " ";
+    }
+
+    span {
+      padding: 10px;
+      background-color: colour-get(white);
+    }
+
+    @media screen and (min-width: $bp--tablet) {
+      max-width: 200px;
+
+      span {
+        padding: 0;
+        background-color: transparent;
+      }
+
+      &::after {
+        position: relative;
+        z-index: 0;
+      }
+    }
+  }
+
+  // ul
+  &__list {
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
+    list-style: none;
+
+    // hover on the list item
+    .resume__list-item:hover {
+      .resume__list-item-inner::before {
+        @include triangle("left", 10px, 20px, colour-get(secondary));
+      }
+    }
+
+    .resume__list-item-inner {
+      margin-left: 30px;
+
+      &::before {
+        @include triangle("left", 10px, 20px, lighten(colour-get(silver), 40%));
+
+        left: -10px;
+      }
+
+      &::after {
+        left: -20px;
+      }
+    }
+
+    @media screen and (min-width: $bp--tablet) {
+      padding: 40px 0;
+    }
+  }
+
+  // li
+  &__list-item {
+    position: relative;
+    outline: none;
+    cursor: pointer;
+
+    .js-hidden-text {
+      height: 0;
+      padding: 10px 60px 0 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: $transition-time;
+    }
+
+    // animate the arrow when the element is expanded
+    &.js-expanded {
+      .resume__details::after {
+        transform: rotate(270deg);
+        transition: all $transition-time;
+      }
+
+      .js-hidden-text {
+        height: auto;
+        opacity: 1;
+      }
+    }
+
+    // circles
+    &::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background-color: colour-get(secondary);
+      border: 6px solid colour-get(primary);
+      border-radius: 100%;
+    }
+
+    // target each list item after the first
+    & + .resume__list-item {
+      margin-top: 20px;
+    }
+
+    &-inner {
+      position: relative;
+      border: 1px solid lighten(colour-get(silver), 40%);
+      transition: all $transition-time;
+
+      &::before {
+        content: " ";
+        position: absolute;
+        top: 20px;
+      }
+    }
+
+    // hover on the list item
+    &:hover {
+      // target the circle
+      &::after {
+        background-color: colour-get(primary);
+        border-color: colour-get(secondary);
+        transition: all $transition-time;
+      }
+
+      .resume__list-item-inner {
+        border-color: colour-get(silver);
+      }
+
+      // target the triangle
+      .resume__list-item-inner::before {
+        transition: all $transition-time;
+      }
+    }
+  }
+
+  &__list.right {
+    @media screen and (min-width: $bp--tablet) {
+      .resume__list-item::after {
+        left: -10px;
+      }
+    }
+  }
+
+  &__list.left {
+    @media screen and (min-width: $bp--tablet) {
+      .resume__list-item::after {
+        right: -10px;
+      }
+
+      // hover on the list item
+      .resume__list-item:hover .resume__list-item-inner::before {
+        @include triangle("right", 10px, 20px, colour-get(secondary));
+      }
+
+      .resume__list-item-inner {
+        margin-right: 30px;
+      }
+
+      .resume__list-item-inner::before {
+        @include triangle("right", 10px, 20px, lighten(colour-get(silver), 40%));
+
+        right: -10px;
+        left: initial;
+      }
+
+      &::after {
+        right: -20px;
+        left: initial;
+      }
+    }
+  }
+
+  &__details {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    overflow: hidden;
+    transition: all $transition-time;
+
+    &::before {
+      @include brand-angle(105px);
+    }
+
+    &::after {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      color: colour-get(white);
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free", sans-serif;
+      content: "\f061";
+      transform: rotate(90deg);
+    }
+
+    p {
+      flex-basis: 100%;
+
+      &.location {
+        flex-basis: 70%;
+      }
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+      color: colour-get(white);
+    }
+
+    .grade {
+      color: inherit;
+    }
+
+    abbr {
+      font-style: normal;
+      text-decoration: none;
+    }
+  }
+
+  .job-role {
+    @include type-style(subheader-alt);
+
+    flex-basis: 70%;
+    padding-bottom: 8px;
+    color: colour-get(secondary);
+  }
+
+  &__col {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: " ";
+      top: 0;
+      z-index: 0;
+      width: 1px;
+      height: calc(100% - 70px);
+      margin-top: 50px;
+      background-color: lighten(colour-get(silver), 40%);
+    }
+
+    @media screen and (min-width: $bp--tablet) {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    & + .resume__col {
+      margin-top: 40px;
+
+      @media screen and (min-width: $bp--tablet) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__education {
+    order: 2;
+    margin-top: 20px;
+
+    &::after {
+      left: 0;
+    }
+
+    @media screen and (min-width: $bp--tablet) {
+      order: 1;
+      margin-top: 0;
+      margin-right: $gutter-width;
+
+      &::after {
+        right: 0;
+        left: initial;
+      }
+    }
+
+    h3 {
+      @media screen and (min-width: $bp--tablet) {
+        align-self: flex-end;
+      }
+    }
+
+    h3::after {
+      @media screen and (min-width: $bp--tablet) {
+        width: 100px;
+        margin-left: 10px;
+        border-bottom: 3px dotted lighten(colour-get(silver), 40%);
+        content: " ";
+      }
+    }
+  }
+
+  &__experiences {
+    order: 1;
+
+    &::after {
+      left: 0;
+    }
+
+    @media screen and (min-width: $bp--tablet) {
+      order: 2;
+    }
+
+    h3 {
+      @media screen and (min-width: $bp--tablet) {
+        align-self: flex-start;
+      }
+    }
+
+    @media screen and (min-width: $bp--tablet) {
+      h3::before {
+        width: 100px;
+        margin-right: 10px;
+        border-bottom: 3px dotted lighten(colour-get(silver), 40%);
+        content: " ";
+      }
+
+      h3::after {
+        content: none;
+      }
+    }
+  }
+}

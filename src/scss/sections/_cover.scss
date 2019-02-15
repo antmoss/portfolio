@@ -1,0 +1,77 @@
+.cover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  color: colour-get(white);
+  background-color: colour-get(secondary);
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-nav__link {
+    display: inline-block;
+    margin-top: 60px;
+
+    .btn {
+      border: $button-border;
+    }
+  }
+
+  &__inner {
+    @media screen and (min-width: $bp--tablet) {
+      max-width: 1300px;
+
+      &.animated {
+        animation-duration: 1.2s;
+        animation-fill-mode: both;
+      }
+    }
+
+    > * {
+      &:first-child {
+        margin-top: 0;
+      }
+
+      margin-top: 20px;
+    }
+  }
+
+  &__title {
+    color: colour-get(white);
+    font-size: 8vw;
+    line-height: 8vw;
+
+    @media screen and (min-width: $bp--tablet) {
+      font-size: 5vw;
+      line-height: 5vw;
+    }
+
+    span {
+      color: colour-get(primary);
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translate(0, 100%);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}

@@ -1,0 +1,35 @@
+.social {
+  margin-top: auto;
+  padding-top: 40px;
+
+  @media screen and (min-width: $bp--tablet) {
+    padding-top: 0;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+  }
+
+  &__list-item {
+    display: flex;
+    flex: 1;
+
+    .btn {
+      flex: 1;
+    }
+
+    span {
+      display: none;
+
+      @media screen and (min-width: 544px) {
+        display: block;
+      }
+    }
+
+    & + .social__list-item {
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+/// Convert a pixel value to rem.
+/// Note: Assumes base font size is determined by browser.
+///
+/// @param {number} $pixel-value - The pixel value you want to convert without any units.
+///
+/// @example scss - REM function
+///
+///   .foo {
+///     font-size: rem(24) // 24px
+///   }
+///
+/// @return {string} The REM value including the rem suffix.
+@function rem($pixel-value) {
+  @if (unitless($pixel-value) == false) {
+    @error('Expected pixel value with no unit.');
+  }
+
+  @return $pixel-value / 16 + rem;
+}
+
+/// Get a colour.
+/// Note: This is named so it's similar to map-get.
+///
+/// @param {string} [primary] $colour-name The colour name to retrieve.
+///
+/// @example scss - Get colour function
+///
+///   .foo {
+///     color: get-colour(primary);
+///   }
+///
+/// @return {string} The colour code.
+@function colour-get($colour-name: primary) {
+  @if (map-has-key($colours, $colour-name) == false) {
+    @error('Colour not found: #{$colour-name}');
+  }
+
+  @return map-get($colours, $colour-name);
+}

@@ -1,0 +1,20 @@
+.about {
+  .page-section__inner {
+    max-width: 1340px;
+    margin: 0 auto;
+  }
+
+  &__img {
+    background: linear-gradient(70deg, colour-get(primary) 50%, colour-get(secondary) 50%);
+  }
+
+  &__img-clip {
+    position: relative;
+    padding: 40px;
+
+    /* Progressive enhancement for Edge and IE */
+    // @supports (clip-path: polygon(0 0, 70% 0, 100% 100%, 30% 100%)) or (clip-path: polygon(0 0, 70% 0, 100% 100%, 30% 100%)) {
+    //   clip-path: polygon(0 0, 70% 0, 100% 100%, 30% 100%);
+    // }
+  }
+}
