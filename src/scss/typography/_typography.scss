@@ -4,6 +4,7 @@ body {
   color: colour-get(silver);
   font-family: $font-stack;
   line-height: $base-line-height;
+  letter-spacing: rem(0.5);
 }
 
 .page-section {

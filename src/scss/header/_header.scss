@@ -30,13 +30,8 @@
 }
 
 .brand {
-  a {
-    display: flex;
-    align-items: center;
-    color: colour-get(white);
-    text-decoration: none;
-    transition: $transition-time;
-  }
+  display: flex;
+  align-items: center;
 
   &__logo {
     width: 60px;
@@ -54,13 +49,23 @@
   }
 
   &__title {
-    @include type-style(title-alt);
-
     display: none;
-    padding: 0 20px;
 
     @media screen and (min-width: $bp--tablet) {
-      display: block;
+      @include type-style(subheader);
+
+      padding: 0 20px;
+      display: flex;
+      text-decoration: none;
+      color: colour-get(white);
+      text-transform: uppercase;
+      transition: all $transition-time;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: underline;
+      }
     }
   }
 }

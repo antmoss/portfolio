@@ -186,7 +186,12 @@
       }
 
       .resume__list-item-inner::before {
-        @include triangle("right", 10px, 20px, lighten(colour-get(silver), 40%));
+        @include triangle(
+          "right",
+          10px,
+          20px,
+          lighten(colour-get(silver), 40%)
+        );
 
         right: -10px;
         left: initial;
@@ -228,6 +233,17 @@
 
       &.location {
         flex-basis: 70%;
+      }
+
+      &.location a {
+        text-decoration: none;
+        transition: $transition-time;
+        color: currentColor;
+
+        &:hover {
+          text-decoration: underline;
+          color: colour-get(secondary);
+        }
       }
     }
 

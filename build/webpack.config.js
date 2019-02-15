@@ -1,110 +1,136 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
-const isDevelopment = process.env.NODE_ENV !== 'production';
+const isDevelopment = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: {
-    bundle: './src/app.js'
+    bundle: './src/app.js',
   },
   output: {
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
   },
-  devtool: isDevelopment && "source-map",
+  devtool: isDevelopment && 'source-map',
   devServer: {
     port: 3000,
     open: true,
-    contentBase: path.join(__dirname, "../src"),
+    contentBase: path.join(__dirname, '../src'),
   },
   module: {
     rules: [
       {
         test: /\.html$/,
-        loader: "html-loader"
+        loader: 'html-loader',
       },
       {
         test: /\.(scss|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               sourceMap: isDevelopment,
-              minimize: !isDevelopment
-            }
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              autoprefixer: {
-                browsers: ["last 2 versions"]
-              },
-              sourceMap: isDevelopment,
-              plugins: () => [
-                autoprefixer
-              ]
+              minimize: !isDevelopment,
             },
           },
           {
-            loader: "sass-loader",
+            loader: 'postcss-loader',
             options: {
-              sourceMap: isDevelopment
-            }
-          }
-        ]
+              autoprefixer: {
+                browsers: ['last 2 versions'],
+              },
+              sourceMap: isDevelopment,
+              plugins: () => [
+                autoprefixer,
+              ],
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
       },
       // images
       {
         test: /\.(jpg|png|svg|gif)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
               name: '[name].[ext]',
               outputPath: 'static/',
               useRelativePath: true,
-            }
+            },
           },
           {
             loader: 'image-webpack-loader',
             options: {
               mozjpeg: {
                 progressive: true,
-                quality: 65
+                quality: 65,
               },
               optipng: {
                 enabled: true,
               },
               pngquant: {
                 quality: '65-90',
-                speed: 4
+                speed: 4,
               },
               gifsicle: {
                 interlaced: false,
               },
               webp: {
-                quality: 75
-              }
-            }
-          }
-        ]
-      }
-    ]
+                quality: 75,
+              },
+            },
+          },
+        ],
+      },
+      // VANILLA JAVASCRIPT
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
+          },
+          {
+            loader: 'eslint-loader',
+            options: {
+              cache: true,
+              failOnWarning: isDevelopment,
+              failOnError: isDevelopment,
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     /** Since Webpack 4 */
     new webpack.LoaderOptionsPlugin({
       options: {
-        handlebarsLoader: {}
-      }
+        handlebarsLoader: {},
+      },
     }),
     new MiniCssExtractPlugin({
-      filename: "[name]-styles.css",
-      chunkFilename: "[id].css"
+      filename: '[name]-styles.css',
+      chunkFilename: '[id].css',
+    }),
+
+    new StyleLintPlugin({
+      emitErrors: isDevelopment,
     }),
 
     new HtmlWebpackPlugin({
@@ -114,9 +140,8 @@ module.exports = {
         collapseWhitespace: true,
         caseSensitive: true,
         removeComments: true,
-        removeEmptyElements: false
+        removeEmptyElements: false,
       },
-
-    })
-  ]
+    }),
+  ],
 };
