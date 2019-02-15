@@ -110,6 +110,10 @@
     &:focus,
     &:active {
       border-color: colour-get(secondary);
+
+      &::placeholder {
+        color: colour-get(secondary);
+      }
     }
 
     &--required {
