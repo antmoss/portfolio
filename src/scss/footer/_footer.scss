@@ -1,0 +1,35 @@
+.site-footer {
+  position: relative;
+  padding: 20px 0;
+  background-color: colour-get(secondary);
+
+  @media screen and (min-width: $bp--tablet) {
+    &::before {
+      @include brand-slant-element(60%, colour-get(primary));
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .copyright-text {
+    @include type-style(caption);
+
+    position: relative;
+    z-index: 1;
+    padding-right: 20px;
+    color: colour-get(white);
+  }
+
+  .btn {
+    padding: 15px 60px 15px 15px;
+    border: $button-border;
+
+    @media screen and (min-width: $bp--tablet) {
+      padding: 15px 80px 15px 15px;
+    }
+  }
+}

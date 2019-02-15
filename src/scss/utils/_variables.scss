@@ -1,0 +1,105 @@
+// -----------------------------------------------------------------------------
+// This file contains default project variables.
+// -----------------------------------------------------------------------------
+
+/**
+ * CONTENTS
+ *
+ * 01. Breakpoints    - #BREAKPOINTS
+ * 02. Typography     - #TYPOGRAPHY
+ * 03. Forms          - #FORMS
+ * 04. Navigation     - #NAVIGATION
+ */
+
+///
+/// #GLOBAL
+///
+
+$bp--desktop: 1440px;
+$bp--social-media: 1040px;
+$bp--tablet: 768px;
+$brand-device-angle: 20deg;
+$inner-width: 1440px;
+$small-inner-width: 1060px;
+$gutter-width: 30px;
+$button-border: 2px solid colour-get(primary);
+
+$transition-time: 0.3s;
+
+///
+/// #TYPOGRAPHY
+///
+$base-font-weight: 400;
+$base-line-height: 1.5;
+// $font-stack: Lato, “Helvetica Neue”, Helvetica, Arial, sans-serif;
+$font-stack: "Montserrat", Arial, sans-serif;
+
+// Font sizes
+$font-size--jumbo: rem(48);
+$font-size--display: rem(36);
+$font-size--headline: rem(24);
+$font-size--title: rem(20);
+$font-size--subheader: rem(18);
+$font-size--body: rem(16);
+$font-size--caption: rem(12);
+$font-size--small: rem(10);
+
+// Type styles
+$type-styles: (
+  jumbo: (
+    font-weight: 100,
+    font-size: $font-size--jumbo
+  ),
+  jumbo-alt: (
+    font-weight: 700,
+    font-size: $font-size--jumbo
+  ),
+  display: (
+    font-weight: 400,
+    font-size: $font-size--display
+  ),
+  display-alt: (
+    font-weight: 300,
+    font-size: $font-size--display
+  ),
+  headline: (
+    font-weight: 400,
+    font-size: $font-size--headline
+  ),
+  headline-alt: (
+    font-weight: 600,
+    font-size: $font-size--headline
+  ),
+  title: (
+    font-weight: 400,
+    font-size: $font-size--title
+  ),
+  title-alt: (
+    font-weight: 600,
+    font-size: $font-size--title
+  ),
+  subheader: (
+    font-weight: 400,
+    font-size: $font-size--subheader
+  ),
+  subheader-alt: (
+    font-weight: 600,
+    font-size: $font-size--subheader
+  ),
+  body: (
+    font-weight: 400,
+    font-size: $font-size--body
+  ),
+  body-alt: (
+    font-weight: 300,
+    font-size: $font-size--body
+  ),
+  caption: (
+    font-weight: 400,
+    font-size: $font-size--caption
+  ),
+  caption-alt: (
+    font-weight: 600,
+    font-size: $font-size--caption
+  )
+);

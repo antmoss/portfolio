@@ -1,0 +1,53 @@
+.visually-hidden {
+  position: absolute;
+  display: block;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(1px);
+}
+
+.container {
+  width: 100%;
+  max-width: $inner-width;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.skip {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  z-index: 99999;
+  width: 1px;
+  height: 1px;
+  padding: 10px;
+  overflow: hidden;
+  color: colour-get(white);
+  text-align: left;
+  background-color: colour-get(secondary);
+
+  &:active,
+  &:focus,
+  &:hover {
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+  }
+}
+
+.js-slide-in {
+  transform: translateX(-30%) scale(0.95);
+  opacity: 0;
+  transition: 0.5s;
+
+  &.active {
+    transform: translateX(0%) scale(1);
+    opacity: 1;
+  }
+}
