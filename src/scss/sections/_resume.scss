@@ -236,14 +236,14 @@
       }
 
       &.location a {
+        color: currentColor;
         text-decoration: none;
         transition: $transition-time;
-        color: currentColor;
+      }
 
-        &:hover {
-          text-decoration: underline;
-          color: colour-get(secondary);
-        }
+      &.location a:hover {
+        color: colour-get(secondary);
+        text-decoration: underline;
       }
     }
 

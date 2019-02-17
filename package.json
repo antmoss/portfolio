@@ -12,6 +12,10 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^8.1.0",
+    "acorn": "^6.0.4",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-loader": "^8.0.4",
     "bourbon": "^5.1.0",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
