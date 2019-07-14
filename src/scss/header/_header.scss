@@ -236,12 +236,12 @@
 
 @keyframes navBackgroundFade {
   0% {
-    background-color: colour-get(primary);
+    background-color: colour-get(secondary);
     opacity: 0;
   }
 
   100% {
-    background-color: colour-get(primary);
+    background-color: colour-get(secondary);
     opacity: 1;
   }
 }
