@@ -6,10 +6,11 @@
   "scripts": {
     "start": "webpack-dev-server --config ./build/webpack.config.js",
     "build": "NODE_ENV=production webpack --config ./build/webpack.config.js --mode=production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gh-pages -d dist"
   },
   "author": "Antony Moss",
   "license": "ISC",
+  "homepage": "https://antonyInviqa.github.io/portfolio",
   "devDependencies": {
     "autoprefixer": "^8.1.0",
     "acorn": "^6.0.4",
@@ -47,6 +48,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "domready": "^1.0.8",
+    "gh-pages": "^2.0.1",
     "normalize.css": "^8.0.1"
   }
 }

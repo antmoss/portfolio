@@ -11,10 +11,5 @@
   &__img-clip {
     position: relative;
     padding: 40px;
-
-    /* Progressive enhancement for Edge and IE */
-    // @supports (clip-path: polygon(0 0, 70% 0, 100% 100%, 30% 100%)) or (clip-path: polygon(0 0, 70% 0, 100% 100%, 30% 100%)) {
-    //   clip-path: polygon(0 0, 70% 0, 100% 100%, 30% 100%);
-    // }
   }
 }
