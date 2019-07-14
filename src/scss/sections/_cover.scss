@@ -12,18 +12,27 @@
     align-items: center;
   }
 
+  /* cta anchor */
   .main-nav__link {
     display: inline-block;
-    margin-top: 60px;
+    margin-top: rem(60);
 
     .btn {
       border: $button-border;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      .btn::before {
+        transform: rotate(90deg);
+      }
     }
   }
 
   &__inner {
     @media screen and (min-width: $bp--tablet) {
-      max-width: 1300px;
+      max-width: rem(1300);
 
       &.animated {
         animation-duration: 1.2s;
@@ -36,7 +45,7 @@
         margin-top: 0;
       }
 
-      margin-top: 20px;
+      margin-top: rem(20);
     }
   }
 

@@ -874,9 +874,9 @@ body {
             transform-origin: 0 0;
     content: "";
     transition: 0.3s; }
-  .btn:hover {
+  .btn:hover, .btn:active, .btn:focus {
     background-color: #449860; }
-    .btn:hover::after {
+    .btn:hover::after, .btn:active::after, .btn:focus::after {
       width: 40%;
       background-color: #449860; }
 
@@ -889,18 +889,18 @@ body {
 
 .icon--arrow-right::before {
   font-weight: 900;
-  font-family: "Font Awesome 5 Free", sans-serif;
-  content: "\F061";
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  content: '\F061';
   transition: 0.3s; }
 
-.icon--arrow-right:hover::before {
+.icon--arrow-right:hover::before, .icon--arrow-right:active::before, .icon--arrow-right:focus::before {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg); }
 
 .icon--arrow-up::before {
   font-weight: 900;
-  font-family: "Font Awesome 5 Free", sans-serif;
-  content: "\F061";
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  content: '\F061';
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
   transition: 0.3s; }
@@ -908,27 +908,27 @@ body {
 .icon--social {
   padding: 18px 0; }
   .icon--social::before {
-    font-family: "Font Awesome 5 Brands", sans-serif; }
+    font-family: 'Font Awesome 5 Brands', sans-serif; }
   @media screen and (min-width: 768px) {
     .icon--social {
       padding: 15px 80px 15px 15px; } }
 
 .icon--twitter::before {
-  content: "\F099"; }
+  content: '\F099'; }
 
 .icon--linkedin::before {
-  content: "\F0E1"; }
+  content: '\F0E1'; }
 
 .icon--github::before {
-  content: "\F09B"; }
+  content: '\F09B'; }
 
 .icon--send::before {
   content: url(static/icons/send.svg); }
 
 .icon--download::before {
   font-weight: 900;
-  font-family: "Font Awesome 5 Free", sans-serif;
-  content: "\F019"; }
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  content: '\F019'; }
 
 .social {
   margin-top: auto;
@@ -1335,7 +1335,7 @@ body {
     border: 1px solid #dddddd; }
     .contact .form-control::-webkit-input-placeholder {
       color: #aaaaaa; }
-    .contact .form-control:-ms-input-placeholder {
+    .contact .form-control::-moz-placeholder {
       color: #aaaaaa; }
     .contact .form-control::-ms-input-placeholder {
       color: #aaaaaa; }
@@ -1345,7 +1345,7 @@ body {
       border-color: #1b242f; }
       .contact .form-control:focus::-webkit-input-placeholder, .contact .form-control:active::-webkit-input-placeholder {
         color: #1b242f; }
-      .contact .form-control:focus:-ms-input-placeholder, .contact .form-control:active:-ms-input-placeholder {
+      .contact .form-control:focus::-moz-placeholder, .contact .form-control:active::-moz-placeholder {
         color: #1b242f; }
       .contact .form-control:focus::-ms-input-placeholder, .contact .form-control:active::-ms-input-placeholder {
         color: #1b242f; }
