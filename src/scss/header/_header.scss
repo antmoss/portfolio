@@ -34,17 +34,17 @@
   align-items: center;
 
   &__logo {
-    width: 60px;
+    width: rem(60);
     height: auto;
-    padding: 10px;
+    padding: rem(10);
 
     @media screen and (min-width: $bp--tablet) {
-      width: 90px;
+      width: rem(90);
     }
   }
 
   &__logo--small {
-    width: 70px;
+    width: rem(70);
     height: auto;
   }
 
@@ -55,7 +55,7 @@
       @include type-style(subheader);
 
       display: flex;
-      padding: 0 20px;
+      padding: 0 rem(20);
       color: colour-get(white);
       text-transform: uppercase;
       text-decoration: none;
@@ -89,7 +89,7 @@
 
     .main-nav__links {
       display: block;
-      padding: 40px;
+      padding: rem(40);
     }
   }
 
@@ -109,7 +109,7 @@
     list-style: none;
 
     &::after {
-      @include brand-slant-element(50%, colour-get(tertiary));
+      @include brand-slant-element(50%, colour-get(secondary));
 
       right: 0;
       left: auto;
@@ -127,14 +127,14 @@
 
   &__links li {
     position: relative;
-    padding: 10px;
-    border-bottom: 1px solid colour-get(secondary);
+    padding: rem(10);
+    border-bottom: rem(1) solid colour-get(primary);
     opacity: 0;
 
     @media screen and (min-width: $bp--tablet) {
       display: flex;
       align-items: center;
-      padding: 24px 25px;
+      padding: rem(24) rem(25);
       border-bottom: 0;
       opacity: 1;
 
@@ -144,7 +144,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 3px;
+        height: rem(3);
         background-color: colour-get(primary);
         transform: scaleX(0);
         visibility: hidden;
@@ -174,7 +174,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 3px;
+        height: rem(3);
         content: " ";
         background-color: colour-get(primary);
       }
@@ -198,9 +198,9 @@
   }
 
   &__line {
-    width: 25px;
-    height: 3px;
-    margin: 5px;
+    width: rem(25);
+    height: rem(3);
+    margin: rem(5);
     background-color: colour-get(white);
     transition: $transition-time;
   }
@@ -236,12 +236,12 @@
 
 @keyframes navBackgroundFade {
   0% {
-    background-color: colour-get(tertiary);
+    background-color: colour-get(primary);
     opacity: 0;
   }
 
   100% {
-    background-color: colour-get(tertiary);
+    background-color: colour-get(primary);
     opacity: 1;
   }
 }
