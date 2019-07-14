@@ -546,14 +546,14 @@ body {
   display: flex;
   align-items: center; }
   .brand__logo {
-    width: 60px;
+    width: 3.75rem;
     height: auto;
-    padding: 10px; }
+    padding: 0.625rem; }
     @media screen and (min-width: 768px) {
       .brand__logo {
-        width: 90px; } }
+        width: 5.625rem; } }
   .brand__logo--small {
-    width: 70px;
+    width: 4.375rem;
     height: auto; }
   .brand__title {
     display: none; }
@@ -562,7 +562,7 @@ body {
         font-weight: 400;
         font-size: 1.125rem;
         display: flex;
-        padding: 0 20px;
+        padding: 0 1.25rem;
         color: #fff;
         text-transform: uppercase;
         text-decoration: none;
@@ -589,7 +589,7 @@ body {
             animation-fill-mode: forwards; }
     .main-nav.js-nav-active .main-nav__links {
       display: block;
-      padding: 40px; }
+      padding: 2.5rem; }
   @media screen and (min-width: 768px) {
     .main-nav {
       display: flex;
@@ -609,7 +609,7 @@ body {
       z-index: 0;
       width: 50%;
       height: 100%;
-      background-color: #242727;
+      background-color: #1b242f;
       content: " ";
       -webkit-transform: skew(20deg);
               transform: skew(20deg);
@@ -626,14 +626,14 @@ body {
           content: none; } }
   .main-nav__links li {
     position: relative;
-    padding: 10px;
-    border-bottom: 1px solid #1b242f;
+    padding: 0.625rem;
+    border-bottom: 0.0625rem solid #5ab578;
     opacity: 0; }
     @media screen and (min-width: 768px) {
       .main-nav__links li {
         display: flex;
         align-items: center;
-        padding: 24px 25px;
+        padding: 1.5rem 1.5625rem;
         border-bottom: 0;
         opacity: 1; }
         .main-nav__links li::after {
@@ -642,7 +642,7 @@ body {
           bottom: 0;
           left: 0;
           width: 100%;
-          height: 3px;
+          height: 0.1875rem;
           background-color: #5ab578;
           -webkit-transform: scaleX(0);
                   transform: scaleX(0);
@@ -664,7 +664,7 @@ body {
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 3px;
+        height: 0.1875rem;
         content: " ";
         background-color: #5ab578; } }
     .main-nav__link:hover {
@@ -679,9 +679,9 @@ body {
     .handburger-menu {
       display: none; } }
   .handburger-menu__line {
-    width: 25px;
-    height: 3px;
-    margin: 5px;
+    width: 1.5625rem;
+    height: 0.1875rem;
+    margin: 0.3125rem;
     background-color: #fff;
     transition: 0.3s; }
   .handburger-menu.js-toggle .handburger-menu__line:nth-child(1) {
@@ -715,18 +715,18 @@ body {
 
 @-webkit-keyframes navBackgroundFade {
   0% {
-    background-color: #242727;
+    background-color: #5ab578;
     opacity: 0; }
   100% {
-    background-color: #242727;
+    background-color: #5ab578;
     opacity: 1; } }
 
 @keyframes navBackgroundFade {
   0% {
-    background-color: #242727;
+    background-color: #5ab578;
     opacity: 0; }
   100% {
-    background-color: #242727;
+    background-color: #5ab578;
     opacity: 1; } }
 
 .site-footer {
