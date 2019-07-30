@@ -8,18 +8,18 @@
   }
 
   .page-section__title {
-    padding-bottom: 20px;
+    padding-bottom: rem(20);
     color: colour-get(white);
   }
 
   &__social {
     display: flex;
-    margin-top: 30px;
+    margin-top: rem(30);
     list-style: none;
 
     i {
       color: colour-get(white);
-      font-size: 17px;
+      font-size: rem(17);
     }
 
     @media screen and (min-width: $bp--tablet) {
@@ -33,12 +33,12 @@
 
     a {
       display: inline-block;
-      padding: 15px;
+      padding: rem(15);
       background-color: colour-get(primary);
     }
 
     & + .contact__social-item {
-      margin-left: 15px;
+      margin-left: rem(15);
     }
 
     &:hover,
@@ -65,7 +65,7 @@
   &__details {
     display: flex;
     flex-direction: column;
-    margin-right: 30px;
+    margin-right: rem(30);
     color: colour-get(white);
 
     @media screen and (min-width: $bp--tablet) {
@@ -74,34 +74,34 @@
   }
 
   &__form {
-    margin-top: 30px;
+    margin-top: rem(30);
   }
 
   &__form-field {
     & + .contact__form-field {
-      margin-top: 20px;
+      margin-top: rem(20);
     }
 
     &:last-of-type {
-      margin-top: 30px;
+      margin-top: rem(30);
 
       @media screen and (min-width: $bp--tablet) {
-        margin-top: 20px;
+        margin-top: rem(20);
       }
     }
   }
 
   .form-control-label {
     display: block;
-    padding-bottom: 4px;
+    padding-bottom: rem(4);
     color: colour-get(white);
   }
 
   .form-control {
     width: 100%;
-    padding: 12px;
+    padding: rem(12);
     background-color: colour-get(white);
-    border: 1px solid lighten(colour-get(silver), 40%);
+    border: rem(1) solid lighten(colour-get(silver), 40%);
 
     &::placeholder {
       color: lighten(colour-get(silver), 20%);
@@ -131,7 +131,7 @@
   }
 
   textarea {
-    min-height: 100px;
+    min-height: rem(100);
   }
 
   .btn {

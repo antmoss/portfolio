@@ -28,6 +28,12 @@
       text-transform: uppercase;
     }
   }
+
+  &__specialties {
+    > span {
+      text-decoration: underline;
+    }
+  }
 }
 
 // bar chart styles
