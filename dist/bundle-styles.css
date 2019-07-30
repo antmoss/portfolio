@@ -974,6 +974,8 @@ body {
     margin-top: 15px; }
   .skills__list-item span {
     text-transform: uppercase; }
+  .skills__specialties > span {
+    text-decoration: underline; }
 
 .bar {
   position: relative;
