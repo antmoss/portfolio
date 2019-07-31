@@ -2,17 +2,15 @@ export default function () {
   // get the section which we want to fire the function
   const element = document.querySelector('.skills');
 
-  function isInViewport() {
-    const bounding = element.getBoundingClientRect();
-
-    if (
+  const isInViewport = (elem) => {
+    const bounding = elem.getBoundingClientRect();
+    return (
       bounding.top >= 0
+      && bounding.left >= 0
       && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-    ) {
-      return true;
-    }
-    return false;
-  }
+      && bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  };
 
   window.addEventListener('scroll', () => {
     if (isInViewport(element)) {
