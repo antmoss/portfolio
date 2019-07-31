@@ -1,6 +1,6 @@
 .social {
   margin-top: auto;
-  padding-top: 40px;
+  padding-top: rem(40);
 
   @media screen and (min-width: $bp--tablet) {
     padding-top: 0;
@@ -25,11 +25,16 @@
 
       @media screen and (min-width: 544px) {
         display: block;
+        padding-left: rem(10);
+      }
+
+      @media (min-width: $bp--tablet) and (max-width: rem(960)) {
+        display: none;
       }
     }
 
-    & + .social__list-item {
-      margin-left: 20px;
+    & + & {
+      margin-left: rem(20);
     }
   }
 }

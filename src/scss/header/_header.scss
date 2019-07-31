@@ -133,13 +133,13 @@
 
     @media screen and (min-width: $bp--tablet) {
       display: flex;
+      flex: 1;
       align-items: center;
-      padding: rem(24) rem(25);
       border-bottom: 0;
       opacity: 1;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         bottom: 0;
         left: 0;
@@ -156,6 +156,10 @@
         transform: scaleX(1);
         visibility: visible;
       }
+    }
+
+    @media screen and (min-width: $bp--social-media) {
+      padding: rem(24) rem(25);
     }
   }
 
@@ -175,12 +179,14 @@
         left: 0;
         width: 100%;
         height: rem(3);
-        content: " ";
+        content: ' ';
         background-color: colour-get(primary);
       }
     }
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       color: colour-get(primary);
     }
   }

@@ -1,141 +1,145 @@
-.contact {
-  background-color: colour-get(secondary);
+@mixin contact($name: '.contact') {
+  #{$name} {
+    background-color: colour-get(secondary);
 
-  .page-section__inner {
-    @media screen and (min-width: $bp--tablet) {
-      display: flex;
-    }
-  }
-
-  .page-section__title {
-    padding-bottom: rem(20);
-    color: colour-get(white);
-  }
-
-  &__social {
-    display: flex;
-    margin-top: rem(30);
-    list-style: none;
-
-    i {
-      color: colour-get(white);
-      font-size: rem(17);
-    }
-
-    @media screen and (min-width: $bp--tablet) {
-      margin-top: auto;
-    }
-  }
-
-  &__social-item {
-    overflow: hidden;
-    transition: $transition-time;
-
-    a {
-      display: inline-block;
-      padding: rem(15);
-      background-color: colour-get(primary);
-    }
-
-    & + .contact__social-item {
-      margin-left: rem(15);
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      transform: scale(0.9);
-
-      a {
-        background-color: darken(colour-get(primary), 10%);
+    .page-section__inner {
+      @media screen and (min-width: $bp--tablet) {
+        display: flex;
       }
+    }
+
+    .page-section__title {
+      padding-bottom: rem(20);
+      color: colour-get(white);
+    }
+
+    &__social {
+      display: flex;
+      margin-top: rem(30);
+      list-style: none;
 
       i {
-        animation: socialIconEffect 0.3s;
+        color: colour-get(white);
+        font-size: rem(17);
       }
-    }
-  }
-
-  &__col {
-    @media screen and (min-width: $bp--tablet) {
-      flex: 1;
-    }
-  }
-
-  &__details {
-    display: flex;
-    flex-direction: column;
-    margin-right: rem(30);
-    color: colour-get(white);
-
-    @media screen and (min-width: $bp--tablet) {
-      @include type-style(title);
-    }
-  }
-
-  &__form {
-    margin-top: rem(30);
-  }
-
-  &__form-field {
-    & + .contact__form-field {
-      margin-top: rem(20);
-    }
-
-    &:last-of-type {
-      margin-top: rem(30);
 
       @media screen and (min-width: $bp--tablet) {
+        margin-top: auto;
+      }
+    }
+
+    &__social-item {
+      overflow: hidden;
+      transition: $transition-time;
+
+      a {
+        display: inline-block;
+        padding: rem(15);
+        background-color: colour-get(primary);
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: darken(colour-get(primary), 10%);
+        }
+      }
+
+      & + .contact__social-item {
+        margin-left: rem(15);
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        transform: scale(0.9);
+
+        i {
+          animation: socialIconEffect 0.3s;
+        }
+      }
+    }
+
+    &__col {
+      @media screen and (min-width: $bp--tablet) {
+        flex: 1;
+      }
+    }
+
+    &__details {
+      display: flex;
+      flex-direction: column;
+      margin-right: rem(30);
+      color: colour-get(white);
+
+      @media screen and (min-width: $bp--tablet) {
+        @include type-style(title);
+      }
+    }
+
+    &__form {
+      margin-top: rem(30);
+    }
+
+    &__form-field {
+      & + .contact__form-field {
         margin-top: rem(20);
       }
-    }
-  }
 
-  .form-control-label {
-    display: block;
-    padding-bottom: rem(4);
-    color: colour-get(white);
-  }
+      &:last-of-type {
+        margin-top: rem(30);
 
-  .form-control {
-    width: 100%;
-    padding: rem(12);
-    background-color: colour-get(white);
-    border: rem(1) solid lighten(colour-get(silver), 40%);
-
-    &::placeholder {
-      color: lighten(colour-get(silver), 20%);
+        @media screen and (min-width: $bp--tablet) {
+          margin-top: rem(20);
+        }
+      }
     }
 
-    &:focus,
-    &:active {
-      border-color: colour-get(secondary);
+    .form-control-label {
+      display: block;
+      padding-bottom: rem(4);
+      color: colour-get(white);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: rem(12);
+      background-color: colour-get(white);
+      border: rem(1) solid lighten(colour-get(silver), 40%);
 
       &::placeholder {
-        color: colour-get(secondary);
+        color: lighten(colour-get(silver), 20%);
+      }
+
+      &:focus,
+      &:active {
+        border-color: colour-get(secondary);
+
+        &::placeholder {
+          color: colour-get(secondary);
+        }
+      }
+
+      &--required {
+        position: relative;
+
+        &::after {
+          position: absolute;
+          right: 0;
+          color: #000;
+          font-weight: 900;
+          font-family: 'Font Awesome 5 Free', sans-serif;
+          content: '\f061';
+        }
       }
     }
 
-    &--required {
-      position: relative;
-
-      &::after {
-        position: absolute;
-        right: 0;
-        color: #000;
-        font-weight: 900;
-        font-family: "Font Awesome 5 Free", sans-serif;
-        content: "\f061";
-      }
+    textarea {
+      min-height: rem(100);
     }
-  }
 
-  textarea {
-    min-height: rem(100);
-  }
-
-  .btn {
-    border: $button-border;
+    .btn {
+      border: $button-border;
+    }
   }
 }
 
@@ -160,3 +164,5 @@
     opacity: 1;
   }
 }
+
+@include contact();
