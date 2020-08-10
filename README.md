@@ -2,10 +2,10 @@
 
 ## Build assets
 
+npm run build
+
+## Deploy to github pages
+
+npm run deploy
 
 
- "scripts": {
-    "start": "webpack-dev-server --config ./build/webpack.config.js",
-    "build": "NODE_ENV=production webpack --config ./build/webpack.config.js --mode=production",
-    "deploy": "gh-pages -d dist"
-  },
