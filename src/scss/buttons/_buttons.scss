@@ -113,6 +113,14 @@
     }
   }
 
+  &--contact {
+    &::before {
+      font-weight: 900;
+      font-family: 'Font Awesome 5 Free', sans-serif;
+      content: '\f1fa';
+    }
+  }
+
   &--send {
     &::before {
       content: url('static/icons/send.svg');
@@ -121,8 +129,6 @@
 
   &--download {
     &::before {
-      font-weight: 900;
-      font-family: 'Font Awesome 5 Free', sans-serif;
       content: '\f019';
     }
   }

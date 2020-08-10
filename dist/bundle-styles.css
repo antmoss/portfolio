@@ -931,12 +931,15 @@ body {
 .icon--github::before {
   content: '\F09B'; }
 
+.icon--contact::before {
+  font-weight: 900;
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  content: '\F1FA'; }
+
 .icon--send::before {
   content: url(static/icons/send.svg); }
 
 .icon--download::before {
-  font-weight: 900;
-  font-family: 'Font Awesome 5 Free', sans-serif;
   content: '\F019'; }
 
 .social {
