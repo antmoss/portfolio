@@ -45,9 +45,7 @@ module.exports = {
                 browsers: ['last 2 versions'],
               },
               sourceMap: isDevelopment,
-              plugins: () => [
-                autoprefixer,
-              ],
+              plugins: () => [autoprefixer],
             },
           },
           {
@@ -58,7 +56,6 @@ module.exports = {
           },
         ],
       },
-      // images
       {
         test: /\.(jpg|png|svg|gif)$/,
         use: [
@@ -94,25 +91,32 @@ module.exports = {
           },
         ],
       },
-      // VANILLA JAVASCRIPT
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
+        test: /\.(js|jsx)$/,
+        exclude: /[\\/]node_modules[\\/]/,
         use: [
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: true,
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    loose: false,
+                    shippedProposals: true,
+                    targets: {
+                      browsers: ['IE 11'],
+                    },
+                  },
+                ],
+              ],
+              plugins: [
+                ['@babel/plugin-proposal-private-methods', { loose: true }],
+                ['@babel/plugin-proposal-class-properties', { loose: true }],
+                ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
+              ],
             },
-          },
-          {
-            loader: 'eslint-loader',
-            options: {
-              cache: true,
-              failOnWarning: isDevelopment,
-              failOnError: isDevelopment,
-            },
-          },
+          }
         ],
       },
     ],

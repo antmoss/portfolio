@@ -3,8 +3,7 @@ import './main.scss';
 
 import React from 'react';
 import { render } from 'react-dom';
-import Header from './react-components/Header';
-
+import Header from './javascript/react-components/Header';
 
 // import javascript modules
 import domready from 'domready';

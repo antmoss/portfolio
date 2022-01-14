@@ -1,9 +1,39 @@
 {
-  "root": true,
-  "extends": "airbnb-base",
-  "plugins": ["jest"],
-  "env": {
-    "browser": true,
-    "jest/globals": true
-  }
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+        "airbnb-base",
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
+        "import/no-unresolved": "off",
+        "no-debugger": 0,
+        "no-param-reassign": 0,
+        "global-require": 0,
+        "prettier/prettier": [
+            "error",
+            {
+                "trailingComma": "none",
+                "singleQuote": true
+            }
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "no-unused-vars": "warn",
+        "func-names": "off",
+        "no-process-exit": "off",
+        "object-shorthand": "off",
+        "class-methods-use-this": "off"
+    }
 }
