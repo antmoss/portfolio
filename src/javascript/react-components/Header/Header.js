@@ -1,6 +1,50 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 
 export default function Header() {
+    const [open, setOpen] = useState('');
+    const [click, setClick] = useState(false);
+    const liRef = useRef(null);
+    const itemEls = useRef({});
+
+    const menuItems = [
+        {
+            name: 'Home',
+            path: '/',
+        },
+        {
+            name: 'About',
+            path: '#section-about',
+        },
+        {
+            name: 'Skills',
+            path: '#section-skills',
+        },
+        {
+            name: 'Resume',
+            path: '#section-resume',
+        },
+        {
+            name: 'Contact',
+            path: '#section-contact',
+        },
+    ];
+
+    if (!menuItems) {
+        return null;
+    }
+
+    function animateLinks(el, index) {
+        el.style.animation = `navLinkFade 0.3s ease forwards ${index / 7 + 0.3}s`;
+    }
+
+    function handleClick() {
+        setOpen(!open);
+        console.log(itemEls);
+        Object.values(itemEls).forEach((val) => {
+            console.log(val);
+        });
+    }
+
     return (
         <header className="site-header" id="section-home">
             <div className="container">
@@ -12,38 +56,22 @@ export default function Header() {
                         07754 964 133
                     </a>
                 </div>
-                <div className="handburger-menu">
+
+                <button type="button" className="handburger-menu" onClick={handleClick} open={open}>
                     <div className="handburger-menu__line"></div>
                     <div className="handburger-menu__line"></div>
                     <div className="handburger-menu__line"></div>
-                </div>
-                <nav className="main-nav">
+                </button>
+
+                <nav className={`main-nav ${open ? 'js-nav-active' : ''}`}>
                     <ul className="main-nav__links">
-                        <li>
-                            <a className="main-nav__link current" href="#section-home">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a className="main-nav__link" href="#section-about">
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a className="main-nav__link" href="#section-skills">
-                                Skills
-                            </a>
-                        </li>
-                        <li>
-                            <a className="main-nav__link" href="#section-resume">
-                                Resume
-                            </a>
-                        </li>
-                        <li>
-                            <a className="main-nav__link" href="#section-contact">
-                                Contact
-                            </a>
-                        </li>
+                        {menuItems.map(({ path, name }, index) => (
+                            <li key={name} ref={(element) => (itemEls.current[index] = element)}>
+                                <a className="main-nav__link current" href={path} onClick={() => setClick(!click)}>
+                                    {name}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
             </div>

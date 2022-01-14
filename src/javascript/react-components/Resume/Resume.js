@@ -13,7 +13,7 @@ export default function Resume() {
                             <span>Education</span>
                         </h3>
                         <ul className="resume__list left">
-                            <li className="resume__list-item" tabindex="0">
+                            <li className="resume__list-item" tabIndex="0">
                                 <div className="resume__list-item-inner">
                                     <div className="resume__details">
                                         <h4 className="job-role">
@@ -28,7 +28,7 @@ export default function Resume() {
                                     </div>
                                 </div>
                             </li>
-                            <li className="resume__list-item" tabindex="0">
+                            <li className="resume__list-item" tabIndex="0">
                                 <div className="resume__list-item-inner">
                                     <div className="resume__details">
                                         <h4 className="job-role">
@@ -43,7 +43,7 @@ export default function Resume() {
                                     </div>
                                 </div>
                             </li>
-                            <li className="resume__list-item" tabindex="0">
+                            <li className="resume__list-item" tabIndex="0">
                                 <div className="resume__list-item-inner">
                                     <div className="resume__details">
                                         <h4 className="job-role">Art &amp; Design</h4>
@@ -62,7 +62,7 @@ export default function Resume() {
                             <span>Experiences</span>
                         </h3>
                         <ul className="resume__list right">
-                            <li className="resume__list-item" tabindex="0">
+                            <li className="resume__list-item" tabIndex="0">
                                 <div className="resume__list-item-inner">
                                     <div className="resume__details">
                                         <h4 className="job-role">Software Engineer II (Front End)</h4>
@@ -78,7 +78,7 @@ export default function Resume() {
                                     </div>
                                 </div>
                             </li>
-                            <li className="resume__list-item" tabindex="0">
+                            <li className="resume__list-item" tabIndex="0">
                                 <div className="resume__list-item-inner">
                                     <div className="resume__details">
                                         <h4 className="job-role">Front-End Developer &amp; Designer</h4>
@@ -95,7 +95,7 @@ export default function Resume() {
                                     </div>
                                 </div>
                             </li>
-                            <li className="resume__list-item" tabindex="0">
+                            <li className="resume__list-item" tabIndex="0">
                                 <div className="resume__list-item-inner">
                                     <div className="resume__details">
                                         <h4 className="job-role">Web Design Internship</h4>

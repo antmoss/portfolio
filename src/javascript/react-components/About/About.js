@@ -11,7 +11,7 @@ export default function About() {
                                 <img
                                     alt="Photo of Antony Moss drinking a cup of tea"
                                     src="static/profile@1x.jpg"
-                                    srcset="static/profile.jpg 2x"
+                                    srcSet="static/profile.jpg 2x"
                                 />
                             </div>
                         </div>

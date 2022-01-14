@@ -40,7 +40,7 @@ export default function Contact() {
 
                     <form action="POST" className="contact__col contact__form" data-netlify="true">
                         <div className="contact__form-field">
-                            <label className="form-control-label" for="name">
+                            <label className="form-control-label" htmlFor="name">
                                 Name
                             </label>
                             <input
@@ -53,7 +53,7 @@ export default function Contact() {
                         </div>
 
                         <div className="contact__form-field">
-                            <label className="form-control-label" for="email">
+                            <label className="form-control-label" htmlFor="email">
                                 Email address
                             </label>
                             <input
@@ -66,7 +66,7 @@ export default function Contact() {
                         </div>
 
                         <div className="contact__form-field">
-                            <label className="form-control-label" for="message">
+                            <label className="form-control-label" htmlFor="message">
                                 Message
                             </label>
                             <textarea
