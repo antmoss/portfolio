@@ -10,7 +10,7 @@ const isDevelopment = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: {
-    bundle: './src/app.js',
+    bundle: './src/app.jsx',
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
