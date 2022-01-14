@@ -3,7 +3,7 @@ import './main.scss';
 
 import React from 'react';
 import { render } from 'react-dom';
-import Header from './javascript/react-components/Header';
+import App from './javascript/react-components/App';
 
 // import javascript modules
 import domready from 'domready';
@@ -27,7 +27,7 @@ import animationEffectOnScroll from './javascript/animation-effect-on-scroll';
 
 
 function main() {
-  render(<Header menuItems={MenuItems} menuItemsDesktop={MenuItemsDesktop}></Header>, reactMenu);
+  render(<App></App>, document.getElementById('root'));
 }
 
 if (document.readyState === 'interactive' || document.readyState === 'complete') {
