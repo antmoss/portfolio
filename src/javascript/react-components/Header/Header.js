@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function Header() {
-    const [open, setOpen] = useState('');
+    const [open, setOpen] = useState(false);
     const [click, setClick] = useState(false);
     const liRef = useRef(null);
     const itemEls = useRef({});
@@ -29,20 +29,18 @@ export default function Header() {
         },
     ];
 
-    if (!menuItems) {
-        return null;
-    }
-
-    function animateLinks(el, index) {
-        el.style.animation = `navLinkFade 0.3s ease forwards ${index / 7 + 0.3}s`;
-    }
-
     function handleClick() {
         setOpen(!open);
-        console.log(itemEls);
-        Object.values(itemEls).forEach((val) => {
-            console.log(val);
-        });
+        console.log(open);
+        const listItems = Array.from(document.querySelectorAll('[data-list-item]'));
+        console.log(listItems);
+
+        if (!open) {
+            listItems.forEach(listItem => {
+                console.log(listItem);
+                listItem.style.animation = `navLinkFade 0.3s ease forwards ${index / 7 + 0.3}s`;
+            });
+        }
     }
 
     return (
@@ -65,8 +63,8 @@ export default function Header() {
 
                 <nav className={`main-nav ${open ? 'js-nav-active' : ''}`}>
                     <ul className="main-nav__links">
-                        {menuItems.map(({ path, name }, index) => (
-                            <li key={name} ref={(element) => (itemEls.current[index] = element)}>
+                        {menuItems.map(({ path, name }) => (
+                            <li key={name} data-list-item>
                                 <a className="main-nav__link current" href={path} onClick={() => setClick(!click)}>
                                     {name}
                                 </a>
