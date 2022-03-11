@@ -854,6 +854,8 @@ body {
   background-color: #5ab578;
   cursor: pointer;
   transition: 0.3s; }
+  .btn--dead {
+    pointer-events: none; }
   .btn::before {
     position: absolute;
     top: 0;

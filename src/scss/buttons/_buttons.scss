@@ -12,6 +12,10 @@
   cursor: pointer;
   transition: $transition-time;
 
+  &--dead {
+    pointer-events: none;
+  }
+
   &::before {
     position: absolute;
     top: 0;
