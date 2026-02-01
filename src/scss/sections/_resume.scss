@@ -216,11 +216,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
+    padding-right: 150px; // Leave space for the blue angled background
     overflow: hidden;
     transition: all $transition-time;
 
     &::before {
-      @include brand-angle(105px);
+      @include brand-angle(200px);
     }
 
     &::after {
@@ -256,7 +257,9 @@
     }
 
     span {
-      position: relative;
+      position: absolute;
+      top: 20px;
+      right: 20px;
       z-index: 1;
       color: colour-get(white);
     }

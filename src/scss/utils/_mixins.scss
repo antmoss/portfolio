@@ -33,11 +33,11 @@
 
 @mixin brand-angle($width) {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -20px; // Extend above to cover rotation gap at top
+  bottom: -80px; // Extend below to cover rotation gap at bottom
+  right: -20px; // Extend right to ensure full coverage
   z-index: 0;
   width: $width;
-  height: 200%;
   background: colour-get(secondary);
   transform: rotate(-20deg);
   transform-origin: 0 0;
