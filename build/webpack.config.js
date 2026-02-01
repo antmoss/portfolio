@@ -1,12 +1,11 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
-const autoprefixer = require('autoprefixer');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
-const isDevelopment = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: {
@@ -14,12 +13,18 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
+    filename: '[name].[contenthash].js',
+    assetModuleFilename: 'static/[name][ext]',
+    clean: true,
   },
-  devtool: isDevelopment && 'source-map',
+  devtool: isProduction ? 'source-map' : 'eval-source-map',
   devServer: {
     port: 3000,
     open: true,
-    contentBase: path.join(__dirname, '../src'),
+    static: {
+      directory: path.join(__dirname, '../src'),
+    },
+    hot: true,
   },
   module: {
     rules: [
@@ -34,113 +39,77 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: isDevelopment,
-              minimize: !isDevelopment,
+              sourceMap: !isProduction,
             },
           },
           {
             loader: 'postcss-loader',
             options: {
-              autoprefixer: {
-                browsers: ['last 2 versions'],
+              sourceMap: !isProduction,
+              postcssOptions: {
+                plugins: [
+                  'postcss-preset-env',
+                  'autoprefixer',
+                ],
               },
-              sourceMap: isDevelopment,
-              plugins: () => [
-                autoprefixer,
-              ],
             },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDevelopment,
+              sourceMap: !isProduction,
+              sassOptions: {
+                includePaths: [path.resolve(__dirname, '../src')],
+              },
             },
           },
         ],
       },
-      // images
+      // Images - using Webpack 5 asset modules
       {
-        test: /\.(jpg|png|svg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'static/',
-              useRelativePath: true,
-            },
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65,
-              },
-              optipng: {
-                enabled: true,
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              webp: {
-                quality: 75,
-              },
-            },
-          },
-        ],
+        test: /\.(jpg|jpeg|png|gif|svg)$/i,
+        type: 'asset/resource',
       },
-      // VANILLA JAVASCRIPT
+      // JavaScript
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-            },
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
           },
-          {
-            loader: 'eslint-loader',
-            options: {
-              cache: true,
-              failOnWarning: isDevelopment,
-              failOnError: isDevelopment,
-            },
-          },
-        ],
+        },
       },
     ],
   },
+  optimization: {
+    minimizer: [
+      '...',
+      new CssMinimizerPlugin(),
+    ],
+  },
   plugins: [
-    /** Since Webpack 4 */
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        handlebarsLoader: {},
-      },
-    }),
     new MiniCssExtractPlugin({
-      filename: '[name]-styles.css',
-      chunkFilename: '[id].css',
+      filename: '[name].[contenthash].css',
     }),
-
+    new ESLintPlugin({
+      extensions: ['js'],
+      emitWarning: !isProduction,
+      failOnError: isProduction,
+    }),
     new StyleLintPlugin({
-      emitErrors: isDevelopment,
+      extensions: ['scss', 'css'],
+      emitWarning: true,
+      failOnError: false,
     }),
-
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      minify: !isDevelopment && {
-        html5: true,
+      minify: isProduction && {
         collapseWhitespace: true,
-        caseSensitive: true,
         removeComments: true,
-        removeEmptyElements: false,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
       },
     }),
   ],
