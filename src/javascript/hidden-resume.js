@@ -1,4 +1,4 @@
-export default function () {
+export default function hiddenResume() {
   const resumeItems = document.querySelectorAll('.resume__list-item');
 
   // terminate the script if there are no items

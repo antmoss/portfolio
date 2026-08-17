@@ -175,6 +175,32 @@
   }
 
   &__list.left {
+    .resume__details::after {
+      content: none;
+    }
+
+    .resume__list-item {
+      cursor: default;
+    }
+
+    .resume__list-item:hover,
+    .resume__list-item:focus,
+    .resume__list-item:active {
+      &::after {
+        background-color: colour-get(secondary);
+        border-color: colour-get(primary);
+        transition: none;
+      }
+
+      .resume__list-item-inner {
+        border-color: lighten(colour-get(silver), 40%);
+      }
+
+      .resume__list-item-inner::before {
+        @include triangle("right", 10px, 20px, lighten(colour-get(silver), 40%));
+      }
+    }
+
     @media screen and (min-width: $bp--tablet) {
       .resume__list-item::after {
         right: -10px;
@@ -265,6 +291,7 @@
     }
 
     .grade {
+      position: static;
       color: inherit;
     }
 

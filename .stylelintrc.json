@@ -16,7 +16,8 @@
     "value-no-vendor-prefix": null,
     "value-keyword-case": null,
     "color-function-notation": null,
-    "alpha-value-notation": null
+    "alpha-value-notation": null,
+    "media-feature-range-notation": null
   },
   "ignoreFiles": ["dist/**", "build/**", "node_modules/**"]
 }

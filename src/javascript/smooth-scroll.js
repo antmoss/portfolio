@@ -1,4 +1,4 @@
-export default function () {
+export default function smoothScroll() {
   let html;
   let body;
 
@@ -73,6 +73,6 @@ export default function () {
 
     // add cover class on first load
     const cover = document.querySelector('.cover__inner');
-    cover.classList.add('fadeInUp');
+    cover.classList.add('fade-in-up');
   };
 }

@@ -75,16 +75,13 @@
 
   &.js-nav-active {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    animation: navBackgroundFade $transition-time;
+    animation: nav-background-fade $transition-time;
     animation-fill-mode: forwards;
 
     .main-nav__links {
@@ -228,7 +225,7 @@
   }
 }
 
-@keyframes navLinkFade {
+@keyframes nav-link-fade {
   from {
     transform: translateX(50px);
     opacity: 0;
@@ -240,7 +237,7 @@
   }
 }
 
-@keyframes navBackgroundFade {
+@keyframes nav-background-fade {
   0% {
     background-color: colour-get(secondary);
     opacity: 0;

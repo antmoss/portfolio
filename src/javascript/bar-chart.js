@@ -1,4 +1,4 @@
-export default function () {
+export default function barChart() {
   // get the section which we want to fire the function
   const element = document.querySelector('.skills');
 

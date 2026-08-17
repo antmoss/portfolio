@@ -1,4 +1,4 @@
-export default function () {
+export default function handburgerMenu() {
   const navSlide = () => {
     const burger = document.querySelector('.handburger-menu');
     const nav = document.querySelector('.main-nav');
@@ -16,7 +16,7 @@ export default function () {
           burger.classList.toggle('js-toggle');
         });
 
-        eachLink.style.animation = `navLinkFade 0.3s ease forwards ${index / 7 + 0.3}s`;
+        eachLink.style.animation = `nav-link-fade 0.3s ease forwards ${index / 7 + 0.3}s`;
       });
 
       burger.classList.toggle('js-toggle');

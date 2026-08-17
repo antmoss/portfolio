@@ -1,4 +1,4 @@
-export default function () {
+export default function animationEffectOnScroll() {
   function debounce(func, wait = 20, immediate = true) {
     let timeout;
     return function () { // eslint-disable-line func-names

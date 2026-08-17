@@ -71,7 +71,7 @@ p + p {
 
   .inner-content-first {
     order: 1;
-    padding: 0 0 40px 0;
+    padding: 0 0 40px;
 
     @media screen and (min-width: $bp--tablet) {
       width: calc(40% - #{$gutter-width} * 2);

@@ -60,6 +60,7 @@ module.exports = {
               sourceMap: !isProduction,
               sassOptions: {
                 includePaths: [path.resolve(__dirname, '../src')],
+                silenceDeprecations: ['import', 'legacy-js-api', 'color-functions', 'global-builtin', 'slash-div', 'if-function'],
               },
             },
           },

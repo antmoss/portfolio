@@ -1,4 +1,4 @@
-export default function () {
+export default function backToTop() {
   const button = document.querySelector('.site-footer .btn');
   let intervalId = 0;
 
